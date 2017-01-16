@@ -1,0 +1,4 @@
+<resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">QuuNvp_7g1RZuE6AQMiWutzNxVjeV1AzNPoib</string>
+    <string name="app_name">Clock</string>
+</resources>
