@@ -22,7 +22,15 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		3A192B1C1E2FBC1E00861AD1 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A192B191E2FBB9500861AD1 /* libRCTPushNotification.a */; };
 		3A482EFE1E2D28ED00593336 /* CodePush.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A93974A1E2D284200FDEEF2 /* CodePush.h */; };
+		3A8F1CEC1E2E648000551602 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8F1CEA1E2E643D00551602 /* libRNSound.a */; };
+		3AD303661E2F1C2400882820 /* best_wake_up_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD303601E2F1C2400882820 /* best_wake_up_sound.mp3 */; };
+		3AD303671E2F1C2400882820 /* darth_vader.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD303611E2F1C2400882820 /* darth_vader.mp3 */; };
+		3AD303681E2F1C2400882820 /* faded.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD303621E2F1C2400882820 /* faded.mp3 */; };
+		3AD303691E2F1C2400882820 /* hello_omfg_ringtone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD303631E2F1C2400882820 /* hello_omfg_ringtone.mp3 */; };
+		3AD3036A1E2F1C2400882820 /* jet_airliner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD303641E2F1C2400882820 /* jet_airliner.mp3 */; };
+		3AD3036B1E2F1C2400882820 /* you_know_you_like_it.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD303651E2F1C2400882820 /* you_know_you_like_it.mp3 */; };
 		49DE306E7F144A978CAB5FCD /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1F2735B29B946BEB3AA15ED /* Foundation.ttf */; };
 		594D0E890E144469B0F44698 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 303A90DD403545599ED0773F /* Zocial.ttf */; };
 		5A3AD98B1D4D45F7B0833292 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1EA24E54EB4D09AFC823FF /* libz.tbd */; };
@@ -104,6 +112,27 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		3A192B181E2FBB9500861AD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A192B131E2FBB9500861AD1 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
+		3A192B1A1E2FBB9500861AD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A192B131E2FBB9500861AD1 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
+			remoteInfo = "RCTPushNotification-tvOS";
+		};
+		3A8F1CE91E2E643D00551602 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A8F1CCB1E2E643D00551602 /* RNSound.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
+			remoteInfo = RNSound;
+		};
 		3A93972B1E2D273200FDEEF2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8F53269F3A8545189C7330B5 /* CodePush.xcodeproj */;
@@ -117,6 +146,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
+		};
+		3AF288DE1E2F823D008897AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AF288CE1E2F823C008897AA /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
+		3AF288E01E2F823D008897AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AF288CE1E2F823C008897AA /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
+			remoteInfo = "RCTPushNotification-tvOS";
 		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -264,7 +307,16 @@
 		303A90DD403545599ED0773F /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		31098A6A6B8B42B4A1954064 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		37203D4C13944A84AD1E4EE6 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		3A192B131E2FBB9500861AD1 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
+		3A8F1CCB1E2E643D00551602 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		3A93974A1E2D284200FDEEF2 /* CodePush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CodePush.h; path = "../node_modules/react-native-code-push/ios/CodePush/CodePush.h"; sourceTree = "<group>"; };
+		3AD303601E2F1C2400882820 /* best_wake_up_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = best_wake_up_sound.mp3; path = ../assets/best_wake_up_sound.mp3; sourceTree = "<group>"; };
+		3AD303611E2F1C2400882820 /* darth_vader.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = darth_vader.mp3; path = ../assets/darth_vader.mp3; sourceTree = "<group>"; };
+		3AD303621E2F1C2400882820 /* faded.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = faded.mp3; path = ../assets/faded.mp3; sourceTree = "<group>"; };
+		3AD303631E2F1C2400882820 /* hello_omfg_ringtone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hello_omfg_ringtone.mp3; path = ../assets/hello_omfg_ringtone.mp3; sourceTree = "<group>"; };
+		3AD303641E2F1C2400882820 /* jet_airliner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = jet_airliner.mp3; path = ../assets/jet_airliner.mp3; sourceTree = "<group>"; };
+		3AD303651E2F1C2400882820 /* you_know_you_like_it.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = you_know_you_like_it.mp3; path = ../assets/you_know_you_like_it.mp3; sourceTree = "<group>"; };
+		3AF288CE1E2F823C008897AA /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		43F7E19652E14A969FCB1395 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		50405A642300481FA214179D /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -293,6 +345,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8F1CEC1E2E648000551602 /* libRNSound.a in Frameworks */,
+				3A192B1C1E2FBC1E00861AD1 /* libRCTPushNotification.a in Frameworks */,
 				3A482EFE1E2D28ED00593336 /* CodePush.h in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -420,6 +474,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3A192B141E2FBB9500861AD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A192B191E2FBB9500861AD1 /* libRCTPushNotification.a */,
+				3A192B1B1E2FBB9500861AD1 /* libRCTPushNotification-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A8F1CCC1E2E643D00551602 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F1CEA1E2E643D00551602 /* libRNSound.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3A9397261E2D273100FDEEF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +503,15 @@
 			isa = PBXGroup;
 			children = (
 				3A93972C1E2D273200FDEEF2 /* libCodePush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AF288CF1E2F823C008897AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AF288DF1E2F823D008897AA /* libRCTPushNotification.a */,
+				3AF288E11E2F823D008897AA /* libRCTPushNotification-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -457,6 +537,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3A192B131E2FBB9500861AD1 /* RCTPushNotification.xcodeproj */,
+				3A8F1CCB1E2E643D00551602 /* RNSound.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -509,6 +591,7 @@
 		E0B24DEA8C2D47508E66A529 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AF288CE1E2F823C008897AA /* RCTPushNotification.xcodeproj */,
 				3A93974A1E2D284200FDEEF2 /* CodePush.h */,
 				7D1EA24E54EB4D09AFC823FF /* libz.tbd */,
 			);
@@ -518,6 +601,12 @@
 		EB8ABBA33F26454797AA6754 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3AD303601E2F1C2400882820 /* best_wake_up_sound.mp3 */,
+				3AD303611E2F1C2400882820 /* darth_vader.mp3 */,
+				3AD303621E2F1C2400882820 /* faded.mp3 */,
+				3AD303631E2F1C2400882820 /* hello_omfg_ringtone.mp3 */,
+				3AD303641E2F1C2400882820 /* jet_airliner.mp3 */,
+				3AD303651E2F1C2400882820 /* you_know_you_like_it.mp3 */,
 				AD705DCB12E74FD2B441866E /* Entypo.ttf */,
 				37203D4C13944A84AD1E4EE6 /* EvilIcons.ttf */,
 				9C52FC194FFF4D7DA1687525 /* FontAwesome.ttf */,
@@ -627,6 +716,14 @@
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
 				},
 				{
+					ProductGroup = 3A192B141E2FBB9500861AD1 /* Products */;
+					ProjectRef = 3A192B131E2FBB9500861AD1 /* RCTPushNotification.xcodeproj */;
+				},
+				{
+					ProductGroup = 3AF288CF1E2F823C008897AA /* Products */;
+					ProjectRef = 3AF288CE1E2F823C008897AA /* RCTPushNotification.xcodeproj */;
+				},
+				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
 				},
@@ -645,6 +742,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 3A8F1CCC1E2E643D00551602 /* Products */;
+					ProjectRef = 3A8F1CCB1E2E643D00551602 /* RNSound.xcodeproj */;
 				},
 				{
 					ProductGroup = 3A9397261E2D273100FDEEF2 /* Products */;
@@ -716,6 +817,27 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		3A192B191E2FBB9500861AD1 /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = 3A192B181E2FBB9500861AD1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A192B1B1E2FBB9500861AD1 /* libRCTPushNotification-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTPushNotification-tvOS.a";
+			remoteRef = 3A192B1A1E2FBB9500861AD1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A8F1CEA1E2E643D00551602 /* libRNSound.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSound.a;
+			remoteRef = 3A8F1CE91E2E643D00551602 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		3A93972C1E2D273200FDEEF2 /* libCodePush.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -728,6 +850,20 @@
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
 			remoteRef = 3A9397471E2D273200FDEEF2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3AF288DF1E2F823D008897AA /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = 3AF288DE1E2F823D008897AA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3AF288E11E2F823D008897AA /* libRCTPushNotification-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTPushNotification-tvOS.a";
+			remoteRef = 3AF288E01E2F823D008897AA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -864,15 +1000,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				3AD3036B1E2F1C2400882820 /* you_know_you_like_it.mp3 in Resources */,
+				3AD3036A1E2F1C2400882820 /* jet_airliner.mp3 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				CDCC471153EA47ECAF473A68 /* Entypo.ttf in Resources */,
 				95DAABFBEC2D4E28AB61AB2D /* EvilIcons.ttf in Resources */,
 				C9F870F082214EF9A5D92FE5 /* FontAwesome.ttf in Resources */,
 				49DE306E7F144A978CAB5FCD /* Foundation.ttf in Resources */,
+				3AD303691E2F1C2400882820 /* hello_omfg_ringtone.mp3 in Resources */,
+				3AD303681E2F1C2400882820 /* faded.mp3 in Resources */,
 				C7516EB8309B43C2BC8CCFA7 /* Ionicons.ttf in Resources */,
+				3AD303661E2F1C2400882820 /* best_wake_up_sound.mp3 in Resources */,
 				6202926C5F564947B7081DF0 /* MaterialCommunityIcons.ttf in Resources */,
 				C3D7AD111B374B309873C495 /* MaterialIcons.ttf in Resources */,
 				85F757B0B0C44C17BEF5142C /* Octicons.ttf in Resources */,
+				3AD303671E2F1C2400882820 /* darth_vader.mp3 in Resources */,
 				80FC27E66DE24291B31550D0 /* SimpleLineIcons.ttf in Resources */,
 				594D0E890E144469B0F44698 /* Zocial.ttf in Resources */,
 			);
@@ -983,6 +1125,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
+				);
 				INFOPLIST_FILE = Clock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1000,6 +1147,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
+				);
 				INFOPLIST_FILE = Clock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

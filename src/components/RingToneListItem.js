@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../constant/Colors';
 import Styles from '../constant/Styles';
 import {
-    choosingRingTone
+    choosingRingTone,
 } from '../actions';
 
 const propTypes = {
@@ -54,5 +54,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    choosingRingTone
+    choosingRingTone,
 })(RingToneListItem);

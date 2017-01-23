@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+import PushNotification from 'react-native-push-notification';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Styles from '../constant/Styles';
@@ -19,22 +20,52 @@ import {
 } from '../actions';
 
 const { width } = Dimensions.get('window');
+
 class Timer extends Component {
     state = {
         hour: 0,
         minute: 1,
         remaining: 0,
+        running: false,
         pause: false,
         btnCancelDisabled: true,
         btnStartPauseLabel: ButtonLabels.START,
     }
 
+    componentWillMount() {
+        PushNotification.configure({
+            onRegister(token) {
+                console.log('token', token);
+            },
+            onNotification(notification) {
+                console.log('notification', notification);
+            },
+            //ios
+            permissions: {
+                alert: true,
+                badge: true,
+                sound: true
+            },
+            requestPermissions: true
+        });
+    }
+
     componentDidMount() {
-        if (this.timeout) {
-            console.log(this.timeout);
-        }
         this.timeout = setInterval(() => {
-            const { remaining, pause } = this.state;
+            const { remaining, pause, running } = this.state;
+            // When Timer Ends, pay ringtone
+            if (running && remaining === 0) {
+                this.pushNotification();
+                // this.alarmSound.play();
+                this.setState({
+                    pause: false,
+                    running: false,
+                    remaining: 0,
+                    btnCancelDisabled: true,
+                    btnStartPauseLabel: ButtonLabels.START
+                });
+            }
+            // Counting down
             if (remaining > 0 && !pause) {
                 this.setState({
                     remaining: remaining - 1
@@ -70,6 +101,7 @@ class Timer extends Component {
         // We reset everything exclude hour, minute
         this.setState({
             pause: false,
+            running: false,
             remaining: 0,
             btnCancelDisabled: true,
             btnStartPauseLabel: ButtonLabels.START
@@ -84,10 +116,32 @@ class Timer extends Component {
             if (remaining === 0) {
                 remaining = ((hour * 60) + minute) * 60;
             }
-            this.setState({ remaining, btnStartPauseLabel: ButtonLabels.PAUSE, btnCancelDisabled: false, pause: false });
+            this.setState({
+                remaining,
+                btnStartPauseLabel: ButtonLabels.PAUSE,
+                btnCancelDisabled: false,
+                pause: false,
+                running: true,
+            });
         } else {
-            this.setState({ pause: true, btnStartPauseLabel: ButtonLabels.RESUME });
+            this.setState({
+                pause: true,
+                btnStartPauseLabel: ButtonLabels.RESUME,
+            });
         }
+    }
+
+    pushNotification() {
+        const { ringTone } = this.props;
+        PushNotification.localNotification({
+            ticker: 'Timer ended',
+            vibrate: true,
+            playSound: true,
+            tag: 'timer_app',
+            title: 'Timer',
+            message: 'Timer ended',
+            soundName: ringTone.path,
+        });
     }
 
     renderPickerOrRemainingTime() {
@@ -211,4 +265,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, changeRingTone)(Timer);
+export default connect(mapStateToProps, { changeRingTone })(Timer);

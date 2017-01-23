@@ -2,38 +2,38 @@
     "ringTone": {
         "id": "1",
         "name": "Wake up",
-        "path": "../../assets/best_wake_up_sound.mp3"
+        "path": "best_wake_up_sound.mp3"
     },
     "ringToneList": [
         {
             "id": "1",
             "name": "Wake up",
-            "path": "../../assets/best_wake_up_sound.mp3"
+            "path": "best_wake_up_sound.mp3"
         },
         {
             "id": "2",
             "name": "Faded",
-            "path": "../../assets/faded.mp3"
+            "path": "faded.mp3"
         },
         {
             "id": "3",
             "name": "Jet Airliner",
-            "path": "../../assets/jet_airliner.mp3"
+            "path": "jet_airliner.mp3"
         },
         {
             "id": "4",
             "name": "You know you like it",
-            "path": "../../assets/you_know_you_like_it.mp3"
+            "path": "you_know_you_like_it.mp3"
         },
         {
             "id": "5",
             "name": "Hello",
-            "path": "../../assets/hello_omfg_ringtone.mp3"
+            "path": "hello_omfg_ringtone.mp3"
         },
         {
             "id": "6",
             "name": "Darth vader",
-            "path": "../../assets/darth_vader.mp3"
+            "path": "darth_vader.mp3"
         }
     ],
     "hourList": [

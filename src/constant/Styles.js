@@ -97,6 +97,7 @@ export default {
     separator: {
         marginLeft: 40,
         borderBottomWidth: 1,
+        borderBottomColor: Colors.navbarBorderColor
     },
     progressContainerStyle: {
     },
