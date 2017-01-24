@@ -22,17 +22,9 @@ import {
 const { width } = Dimensions.get('window');
 
 class Timer extends Component {
-    state = {
-        hour: 0,
-        minute: 1,
-        remaining: 0,
-        running: false,
-        pause: false,
-        btnCancelDisabled: true,
-        btnStartPauseLabel: ButtonLabels.START,
-    }
-
-    componentWillMount() {
+    constructor(props) {
+        super(props);
+        this.createPushNotificationObject(this.props);
         PushNotification.configure({
             onRegister(token) {
                 console.log('token', token);
@@ -50,13 +42,31 @@ class Timer extends Component {
         });
     }
 
+    state = {
+        hour: 0,
+        minute: 1,
+        remaining: 0,
+        running: false,
+        pause: false,
+        btnCancelDisabled: true,
+        btnStartPauseLabel: ButtonLabels.START,
+    }
+
     componentDidMount() {
         this.timeout = setInterval(() => {
             const { remaining, pause, running } = this.state;
+            // Counting down
+            if (remaining > 0 && !pause) {
+                this.setState({
+                    remaining: remaining - 1
+                });
+            }
             // When Timer Ends, pay ringtone
             if (running && remaining === 0) {
-                this.pushNotification();
-                // this.alarmSound.play();
+                // Push local notification
+                PushNotification.localNotification(this.notification);
+
+                // Reset state
                 this.setState({
                     pause: false,
                     running: false,
@@ -65,13 +75,11 @@ class Timer extends Component {
                     btnStartPauseLabel: ButtonLabels.START
                 });
             }
-            // Counting down
-            if (remaining > 0 && !pause) {
-                this.setState({
-                    remaining: remaining - 1
-                });
-            }
         }, 1000);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.createPushNotificationObject(nextProps);
     }
 
     componentWillUnmount() {
@@ -106,6 +114,8 @@ class Timer extends Component {
             btnCancelDisabled: true,
             btnStartPauseLabel: ButtonLabels.START
         });
+        // cancel local notifications
+        PushNotification.cancelLocalNotifications(this.notification);
     }
 
     onStartPauseResume() {
@@ -131,17 +141,17 @@ class Timer extends Component {
         }
     }
 
-    pushNotification() {
-        const { ringTone } = this.props;
-        PushNotification.localNotification({
+    createPushNotificationObject({ ringTone }) {
+        this.notification = {
+            id: '999',
             ticker: 'Timer ended',
             vibrate: true,
-            playSound: true,
+            playSound: ringTone !== undefined,
             tag: 'timer_app',
             title: 'Timer',
             message: 'Timer ended',
-            soundName: ringTone.path,
-        });
+            soundName: ringTone && ringTone.path,
+        };
     }
 
     renderPickerOrRemainingTime() {
