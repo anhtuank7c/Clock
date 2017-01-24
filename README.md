@@ -2,7 +2,7 @@
 
 | Platform |                                     iOS                                    |                                     Android                                    |
 |:--------:|:--------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
-|   Demo   | ![iOS version](https://media.giphy.com/media/26gsaVZof1md2XU64/source.gif) | ![Android version](https://media.giphy.com/media/l3q2J3YaYcznHLLhe/source.gif) |
+|   Demo   | ![iOS version](https://media.giphy.com/media/1iLp6mLO4heVV6j6/source.gif) | [![Android version](https://media.giphy.com/media/l3q2J3YaYcznHLLhe/source.gif)](https://www.youtube.com/watch?v=8SFb4ZL6SQc&feature=youtu.be) |
 
 ## Clone project to your computer
 
