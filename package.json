@@ -22,11 +22,7 @@
   "devDependencies": {
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
-    "eslint": "^#.#.#",
-    "eslint-config-airbnb": "^14.0.0",
-    "eslint-plugin-import": "^#.#.#",
-    "eslint-plugin-jsx-a11y": "^#.#.#",
-    "eslint-plugin-react": "^#.#.#",
+    "eslint-config-rallycoding": "^3.2.0",
     "jest": "18.1.0",
     "react-test-renderer": "~15.4.0-rc.4"
   },

@@ -4,7 +4,7 @@ import {
     Text,
     Picker,
     Dimensions,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -55,12 +55,6 @@ class Timer extends Component {
     componentDidMount() {
         this.timeout = setInterval(() => {
             const { remaining, pause, running } = this.state;
-            // Counting down
-            if (remaining > 0 && !pause) {
-                this.setState({
-                    remaining: remaining - 1
-                });
-            }
             // When Timer Ends, pay ringtone
             if (running && remaining === 0) {
                 // Push local notification
@@ -73,6 +67,12 @@ class Timer extends Component {
                     remaining: 0,
                     btnCancelDisabled: true,
                     btnStartPauseLabel: ButtonLabels.START
+                });
+            }
+            // Counting down
+            if (remaining > 0 && !pause) {
+                this.setState({
+                    remaining: remaining - 1
                 });
             }
         }, 1000);
