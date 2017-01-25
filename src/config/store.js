@@ -8,7 +8,6 @@ const middlewares = [thunkMiddleware];
 if (__DEV__) {
     middlewares.push(createLoggerMiddleware({}));
 }
-
 const store = createStore(
     reducers,
     {},

@@ -5,6 +5,7 @@ import {
     Picker,
     Dimensions,
     TouchableOpacity,
+    AppState
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -25,21 +26,7 @@ class Timer extends Component {
     constructor(props) {
         super(props);
         this.createPushNotificationObject(this.props);
-        PushNotification.configure({
-            onRegister(token) {
-                console.log('token', token);
-            },
-            onNotification(notification) {
-                console.log('notification', notification);
-            },
-            //ios
-            permissions: {
-                alert: true,
-                badge: true,
-                sound: true
-            },
-            requestPermissions: true
-        });
+        this.handleAppStateChange = this.handleAppStateChange.bind(this);
     }
 
     state = {
@@ -53,6 +40,23 @@ class Timer extends Component {
     }
 
     componentDidMount() {
+        AppState.addEventListener('change', this.handleAppStateChange);
+        PushNotification.configure({
+            onRegister(token) {
+                console.log('token', token);
+            },
+            onNotification(notification) {
+                console.log('notification', notification);
+            },
+            //ios
+            permissions: {
+                alert: true,
+                badge: true,
+                sound: true
+            },
+            requestPermissions: true,
+        });
+
         this.timeout = setInterval(() => {
             const { remaining, pause, running } = this.state;
             // When Timer Ends, pay ringtone
@@ -83,6 +87,7 @@ class Timer extends Component {
     }
 
     componentWillUnmount() {
+        AppState.removeEventListener('change', this.handleAppStateChange);
         clearInterval(this.timeout);
     }
 
@@ -141,9 +146,16 @@ class Timer extends Component {
         }
     }
 
+    handleAppStateChange(appState) {
+        console.log(`AppSTATE: ${appState}`);
+        // if (appState === 'background') {
+        //     PushNotification.localNotification(this.notification);
+        // }
+    }
+
     createPushNotificationObject({ ringTone }) {
         this.notification = {
-            id: '999',
+            id: 999,
             ticker: 'Timer ended',
             vibrate: true,
             playSound: ringTone !== undefined,
