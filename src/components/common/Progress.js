@@ -13,8 +13,13 @@ const Progress = ({ progressed = 0, color = '#4caf50', height = 6 }) => {
         throw new Error('Value for progressed from 0-100');
     }
     const screenWidth = screen.width * 0.8;
-    const { progressContainerStyle, progressBarContainerStyle, progressBarContentStyle } = Styles;
+    const {
+        progressContainerStyle,
+        progressBarContainerStyle,
+        progressBarContentStyle
+    } = Styles;
     const progressWidth = (screenWidth * progressed) / 100;
+    const progressStatistic = Math.round(progressWidth);
 
     return (
         <View style={progressContainerStyle}>
@@ -22,8 +27,8 @@ const Progress = ({ progressed = 0, color = '#4caf50', height = 6 }) => {
                 <View style={[progressBarContentStyle, { width: progressWidth, height, backgroundColor: color }]} />
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Text>{progressWidth}</Text>
-                <Text>{progressWidth}/{100}</Text>
+                <Text>{progressStatistic}</Text>
+                <Text>{progressStatistic}/{100}</Text>
             </View>
         </View>
     );

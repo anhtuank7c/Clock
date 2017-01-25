@@ -3,7 +3,8 @@
 | Platform |                                     iOS                                    |                                     Android                                    |
 |:--------:|:--------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 |   Demo   | ![iOS version](https://media.giphy.com/media/1iLp6mLO4heVV6j6/source.gif) | ![Android version](https://media.giphy.com/media/l3q2J3YaYcznHLLhe/source.gif) |
-|   Video  |                                                                            | [Demo](https://www.youtube.com/watch?v=8SFb4ZL6SQc&feature=youtu.be)           |
+|   Video  |      [Youtube link](https://youtu.be/p3YX_g52mGw)                      | [Youtube link](https://youtu.be/8SFb4ZL6SQc)           |
+
 ## Clone project to your computer
 
 Following these steps

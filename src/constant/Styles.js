@@ -109,7 +109,6 @@ export default {
     },
     modalContainer: {
         backgroundColor: '#ccc',
-        flex: 1
     },
     modalHeader: {
         backgroundColor: '#4caf50',
@@ -127,6 +126,6 @@ export default {
     modalContent: {
         margin: 15,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 };

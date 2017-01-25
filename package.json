@@ -16,12 +16,17 @@
     "react-native-vector-icons": "^4.0.0",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
-    "eslint-config-rallycoding": "^3.2.0",
+    "eslint": "^#.#.#",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^#.#.#",
+    "eslint-plugin-jsx-a11y": "^#.#.#",
+    "eslint-plugin-react": "^#.#.#",
     "jest": "18.1.0",
     "react-test-renderer": "~15.4.0-rc.4"
   },
