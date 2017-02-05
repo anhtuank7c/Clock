@@ -10,7 +10,7 @@ class Stopwatch extends Component {
             <View style={container}>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{ color: '#fff', fontSize: 30 }}>
-                        Stopwatch
+                        Stopwatch v1
                     </Text>
                 </View>
             </View>

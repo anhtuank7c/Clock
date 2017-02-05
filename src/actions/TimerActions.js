@@ -20,7 +20,7 @@ export default class TimerActions {
 
     static backToTimer = (ringTone) => (dispatch) => {
         dispatch({
-            type: TimerActions.CHANGE_RING_TONE,
+            type: ActionTypes.CHANGE_RING_TONE,
             payload: ringTone
         });
         Actions.timer();
