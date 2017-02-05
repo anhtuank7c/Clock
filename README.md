@@ -20,7 +20,6 @@ react-native run-ios (or react-native run-android)
 ## Instantly releasing App (Without App/Play Store)
 
 Smarter app version management
-[![the whole world in your hand](http://i.imgur.com/795Sx23.png)](https://www.youtube.com/watch?v=hXrqnfcW_Y8)
 
 ##### 1) [Setup Microsoft Code Push (Free service):](https://microsoft.github.io/code-push/)
 
@@ -66,7 +65,7 @@ class App extends Component {
 
 #### Important: By default, we releasing Staging app, then if everything OK, we promote to the Production (That why when you add new code-push app, we have 2 different key Staging/Production)
 
-###### 3.1) Mandatory mode:
+###### 3.1) Mandatory mode: [Youtube guide](https://www.youtube.com/playlist?list=PL8fCDnOJyd48iDLG2_jv-ejvuQGwll05s)
 
 -  Update immediately. (No way to ignore this update)
 -  Very useful in urgent case. (IE: security, payment etc...)
@@ -76,7 +75,7 @@ class App extends Component {
     code-push release-react clock-ios ios -m --description "This is a mandatory release for iOS platform, in Staging environment"
 ```
 
-###### 3.2) Optional mode:
+###### 3.2) Optional mode: [Youtube guide](https://www.youtube.com/playlist?list=PL8fCDnOJyd49G2Es-bDO2qn9QfaJBxr5i)
 - Client can install update later (not required).
 
 ```
@@ -97,7 +96,7 @@ class App extends Component {
     code-push promote clock-ios Staging Production
 ```
 
-###### 3.4) Rollback release:
+###### 3.4) Rollback release: [Youtube guide](https://www.youtube.com/playlist?list=PL8fCDnOJyd4_oI77MfDrsbgI8z3a2rh_q)
 
 Sometime we got bad release, then we can roll it back to previous one
 
