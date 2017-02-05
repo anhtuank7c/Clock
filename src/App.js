@@ -20,19 +20,17 @@ class App extends Component {
             switch (status) {
                 case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
                     this.setState({ showDownloadingModal: true });
-                    // this.modal.open();
                     break;
                 case CodePush.SyncStatus.INSTALLING_UPDATE:
                     this.setState({ showInstallingModal: true });
                     break;
                 case CodePush.SyncStatus.UPDATE_INSTALLED:
-                    // this.modal.close();
                     break;
                 default:
                     break;
             }
-        }, ({ receiveBytes, totalBytes }) => {
-            this.setState({ downloadProgress: (receiveBytes / totalBytes) * 100 });
+        }, ({ receivedBytes, totalBytes }) => {
+            this.setState({ downloadProgress: Math.round((receivedBytes / totalBytes) * 100) });
         });
     }
 

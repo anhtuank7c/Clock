@@ -1,62 +1,64 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
     ListView,
     ScrollView,
-    View,
+    View
 } from 'react-native';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
 import Sound from 'react-native-sound';
-
-import { NavBar } from './common';
+import { NavBarButton } from './common';
+import store from '../config/store';
+import TimerActions from '../actions/TimerActions';
 import Styles from '../constant/Styles';
-import ButtonLabels from '../constant/ButtonLabels';
 import RingToneListItem from './RingToneListItem';
-import {
-    changeRingTone,
-    choosingRingTone,
-} from '../actions';
-
-const propTypes = {
-    ringTone: PropTypes.object.isRequired,
-    tmpRingTone: PropTypes.object.isRequired,
-    ringToneList: PropTypes.array.isRequired,
-};
 
 class RingToneList extends Component {
+    static renderLeftButton = () => {
+        return (
+            <NavBarButton
+                title="Cancel"
+                onPress={() => {
+                    const { ringTone } = store.getState().timer;
+                    store.dispatch(TimerActions.backToTimer(ringTone));
+                }} />
+        );
+    }
+
+    static renderRightButton = () => {
+        return (
+            <NavBarButton
+                title="Set"
+                onPress={() => {
+                    const { tmpRingTone } = store.getState().timer;
+                    store.dispatch(TimerActions.changeRingTone(tmpRingTone));
+                }} />
+        );
+    }
+
     componentWillMount() {
         this.createDataSource(this.props);
     }
 
     componentWillReceiveProps(nextProps) {
-        const { playSound } = nextProps;
-        this.setupPlayingTmpSound(playSound);
+        this.playSound(nextProps);
     }
 
-    onCancelPress() {
-        const { ringTone } = this.props;
-        this.props.changeRingTone({ ringTone });
-        Actions.pop();
+    componentWillUnmount() {
+        this.playSound({ playSound: undefined });
     }
 
-    onSetPress() {
-        const { tmpRingTone } = this.props;
-        this.props.changeRingTone({ ringTone: tmpRingTone });
-        Actions.pop();
-    }
-
-    setupPlayingTmpSound(playSound) {
+    playSound({ playSound }) {
         if (this.playTmpSound !== undefined) {
             this.playTmpSound.stop();
         }
-        if (playSound === undefined || playSound.path === undefined) {
+        if (playSound === undefined || playSound.song === undefined) {
             return;
         }
-        this.playTmpSound = new Sound(playSound.path, Sound.MAIN_BUNDLE, e => {
+        const playTmpSound = new Sound(playSound.song, Sound.MAIN_BUNDLE, e => {
             if (e) throw e;
-            this.playTmpSound.setVolume(1);
-            this.playTmpSound.setNumberOfLoops(1);
-            this.playTmpSound.play();
+            playTmpSound.setNumberOfLoops(0);
+            playTmpSound.play();
+            this.playTmpSound = playTmpSound;
         });
     }
 
@@ -75,43 +77,30 @@ class RingToneList extends Component {
         const { container, listViewStyle } = Styles;
         return (
             <View style={container}>
-                <NavBar
-                    title="When Timer Ends"
-                    titleLeft={ButtonLabels.CANCEL}
-                    onLeftPress={this.onCancelPress.bind(this)}
-                    titleRight={ButtonLabels.SET}
-                    onRightPress={this.onSetPress.bind(this)}
-                    />
                 <ScrollView indicatorStyle="white">
                     <ListView
                         style={listViewStyle}
                         enableEmptySections
                         dataSource={this.dataSource}
                         renderRow={this.renderRow}
-                        renderSeparator={(sectionId, rowId) => <View key={rowId} style={Styles.separator} />}
+                        renderSeparator={
+                            (sectionId, rowId) => <View key={rowId} style={Styles.separator} />
+                        }
                         renderFooter={() => {
                             const item = {
-                                id: 9999,
                                 name: 'Stop Playing',
-                                path: undefined
+                                song: undefined
                             };
-                            return <RingToneListItem item={item} />
-                        } }
-                        />
+                            return <RingToneListItem item={item} />;
+                        }}
+                    />
                 </ScrollView>
             </View>
         );
     }
 }
 
-RingToneList.propTypes = propTypes;
-
-const mapStateToProps = (state) => {
+export default connect((state) => {
     const { ringToneList, ringTone, tmpRingTone, playSound } = state.timer;
     return { ringToneList, ringTone, tmpRingTone, playSound };
-};
-
-export default connect(mapStateToProps, {
-    changeRingTone,
-    choosingRingTone,
 })(RingToneList);

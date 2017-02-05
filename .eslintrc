@@ -1,3 +1,7 @@
 {
-    "extends": "rallycoding"
+    "extends": "rallycoding",
+    "rules": {
+        "react/jsx-closing-bracket-location": 0,
+        "arrow-body-style": 0
+    }
 }

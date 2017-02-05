@@ -3,7 +3,7 @@
 | Platform |                                     iOS                                    |                                     Android                                    |
 |:--------:|:--------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 |   Demo   | ![iOS version](https://media.giphy.com/media/1iLp6mLO4heVV6j6/source.gif) | ![Android version](https://media.giphy.com/media/l3q2J3YaYcznHLLhe/source.gif) |
-|   Video  |      [Youtube link](https://youtu.be/p3YX_g52mGw)                      | [Youtube link](https://youtu.be/8SFb4ZL6SQc)           |
+|   Video  |      [Youtube link](https://youtu.be/YewW0DVcuJM)                      | [Youtube link](https://youtu.be/8SFb4ZL6SQc)           |
 
 ## Clone project to your computer
 
@@ -32,6 +32,8 @@ You have to install `code-push-cli` before start (`npm install -g code-push-cli`
     code-push app add clock-ios (We will have 2 key Staging is for testing purposes, Production is for publish purposes)
     react-native link (follow the command and enter key above)
 ```
+- [Setup key for iOS](https://github.com/Microsoft/react-native-code-push#ios)
+- [Setup key for Android](https://github.com/Microsoft/react-native-code-push#android)
 
 ##### 2) Setup code-push inside your react-native app:
 [Solution for BUILD FAILED `CodePush.h` not found](https://github.com/Microsoft/react-native-code-push/issues/662#issuecomment-272901612)

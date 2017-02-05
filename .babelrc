@@ -1,7 +1,5 @@
 {
     "presets": [
         "react-native"
-    ],
-    "plugins": [],
-    "sourceMaps": true
+    ]
 }

@@ -13,11 +13,18 @@ const INITIAL = {
 export default (state = INITIAL, action) => {
     switch (action.type) {
         case ActionTypes.CHANGE_RING_TONE:
-            return { ...state, ringTone: action.payload, tmpRingTone: action.payload };
+            return {
+                ...state,
+                ringTone: action.payload,
+                tmpRingTone: action.payload,
+                playSound: undefined
+            };
         case ActionTypes.CHOOSING_RING_TONE:
-            return { ...state, tmpRingTone: action.payload };
-        case ActionTypes.PLAY_SOUND:
-            return { ...state, playSound: action.payload };
+            return {
+                ...state,
+                tmpRingTone: action.payload,
+                playSound: action.payload
+            };
         default:
             return state;
     }

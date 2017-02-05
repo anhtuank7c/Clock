@@ -1,39 +1,72 @@
 {
     "ringTone": {
-        "id": "1",
-        "name": "Wake up",
-        "path": "best_wake_up_sound.mp3"
+        "name": "Có vấn đề",
+        "song": "co_van_de.m4a"
     },
     "ringToneList": [
         {
-            "id": "1",
-            "name": "Wake up",
-            "path": "best_wake_up_sound.mp3"
+            "name": "Có vấn đề",
+            "song": "co_van_de.m4a"
         },
         {
-            "id": "2",
+            "name": "500 miles",
+            "song": "five_hundred_miles.m4a"
+        },
+        {
+            "name": "Beat It",
+            "song": "beat_it.m4a"
+        },
+        {
+            "name": "Europe skies",
+            "song": "europe_skies.m4a"
+        },
+        {
+            "name": "Cannon in D",
+            "song": "cannon_in_d.m4a"
+        },
+        {
+            "name": "GTA Korea",
+            "song": "gta_korea.m4a"
+        },
+        {
+            "name": "Chicken in the corn",
+            "song": "chicken_in_the_corn.m4a"
+        },
+        {
+            "name": "Somebody that i used to know",
+            "song": "somebody_that_i_used_to_know.m4a"
+        },
+        {
+            "name": "Có bao giờ anh nhớ",
+            "song": "co_bao_gio_anh_nho.m4a"
+        },
+        {
+            "name": "Tình nữ nhi",
+            "song": "tinh_nu_nhi.m4a"
+        },
+        {
             "name": "Faded",
-            "path": "faded.mp3"
+            "song": "faded.mp3"
         },
         {
-            "id": "3",
-            "name": "Jet Airliner",
-            "path": "jet_airliner.mp3"
+            "name": "Wake up",
+            "song": "best_wake_up_sound.mp3"
         },
         {
-            "id": "4",
-            "name": "You know you like it",
-            "path": "you_know_you_like_it.mp3"
-        },
-        {
-            "id": "5",
             "name": "Hello",
-            "path": "hello_omfg_ringtone.mp3"
+            "song": "hello_omfg_ringtone.mp3"
         },
         {
-            "id": "6",
+            "name": "Jet Airliner",
+            "song": "jet_airliner.mp3"
+        },
+        {
+            "name": "You know you like it",
+            "song": "you_know_you_like_it.mp3"
+        },
+        {
             "name": "Darth vader",
-            "path": "darth_vader.mp3"
+            "song": "darth_vader.mp3"
         }
     ],
     "hourList": [

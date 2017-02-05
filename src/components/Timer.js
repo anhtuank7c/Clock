@@ -5,30 +5,19 @@ import {
     Picker,
     Dimensions,
     TouchableOpacity,
-    AppState
+    Alert
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import PushNotification from 'react-native-push-notification';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Sound from 'react-native-sound';
 
 import Styles from '../constant/Styles';
 import Colors from '../constant/Colors';
 import ButtonLabels from '../constant/ButtonLabels';
 import { Button } from './common';
-import {
-    changeRingTone,
-} from '../actions';
-
-const { width } = Dimensions.get('window');
 
 class Timer extends Component {
-    constructor(props) {
-        super(props);
-        this.createPushNotificationObject(this.props);
-        this.handleAppStateChange = this.handleAppStateChange.bind(this);
-    }
-
     state = {
         hour: 0,
         minute: 1,
@@ -37,33 +26,14 @@ class Timer extends Component {
         pause: false,
         btnCancelDisabled: true,
         btnStartPauseLabel: ButtonLabels.START,
+        width: Dimensions.get('window').width
     }
 
     componentDidMount() {
-        AppState.addEventListener('change', this.handleAppStateChange);
-        PushNotification.configure({
-            onRegister(token) {
-                console.log('token', token);
-            },
-            onNotification(notification) {
-                console.log('notification', notification);
-            },
-            //ios
-            permissions: {
-                alert: true,
-                badge: true,
-                sound: true
-            },
-            requestPermissions: true,
-        });
-
         this.timeout = setInterval(() => {
             const { remaining, pause, running } = this.state;
             // When Timer Ends, pay ringtone
             if (running && remaining === 0) {
-                // Push local notification
-                PushNotification.localNotification(this.notification);
-
                 // Reset state
                 this.setState({
                     pause: false,
@@ -72,22 +42,38 @@ class Timer extends Component {
                     btnCancelDisabled: true,
                     btnStartPauseLabel: ButtonLabels.START
                 });
+
+                // Stop current sound when already exists
+                if (this.timerSound !== undefined) {
+                    this.timerSound.stop();
+                }
+                const { ringTone } = this.props;
+                // Play sound if it is not No Sound
+                if (ringTone !== undefined && ringTone.song !== undefined) {
+                    this.timerSound = new Sound(ringTone.song, Sound.MAIN_BUNDLE, e => {
+                        if (e) throw e;
+                        // Sound never stop until press Dismiss
+                        this.timerSound.setNumberOfLoops(-1);
+                        this.timerSound.play();
+                    });
+                }
+                // Show alert
+                Alert.alert(
+                    null,
+                    'Timer Ended',
+                    [
+                        { text: 'Dismiss', onPress: () => this.timerSound.stop() },
+                    ]
+                );
             }
             // Counting down
             if (remaining > 0 && !pause) {
-                this.setState({
-                    remaining: remaining - 1
-                });
+                this.setState({ remaining: remaining - 1 });
             }
-        }, 1000);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.createPushNotificationObject(nextProps);
+        }, 1000); // 1000 ms
     }
 
     componentWillUnmount() {
-        AppState.removeEventListener('change', this.handleAppStateChange);
         clearInterval(this.timeout);
     }
 
@@ -119,8 +105,6 @@ class Timer extends Component {
             btnCancelDisabled: true,
             btnStartPauseLabel: ButtonLabels.START
         });
-        // cancel local notifications
-        PushNotification.cancelLocalNotifications(this.notification);
     }
 
     onStartPauseResume() {
@@ -146,26 +130,6 @@ class Timer extends Component {
         }
     }
 
-    handleAppStateChange(appState) {
-        console.log(`AppSTATE: ${appState}`);
-        // if (appState === 'background') {
-        //     PushNotification.localNotification(this.notification);
-        // }
-    }
-
-    createPushNotificationObject({ ringTone }) {
-        this.notification = {
-            id: 999,
-            ticker: 'Timer ended',
-            vibrate: true,
-            playSound: ringTone !== undefined,
-            tag: 'timer_app',
-            title: 'Timer',
-            message: 'Timer ended',
-            soundName: ringTone && ringTone.path,
-        };
-    }
-
     renderPickerOrRemainingTime() {
         const {
             timePickerStyle,
@@ -178,7 +142,7 @@ class Timer extends Component {
             hourList,
             minuteList,
         } = this.props;
-        const { hour, minute, remaining, btnCancelDisabled } = this.state;
+        const { hour, minute, remaining, btnCancelDisabled, width } = this.state;
         // format remaining in hh:MM:ss
         const remainingString = new Date(null, null, null, null, null, remaining)
             .toTimeString()
@@ -273,18 +237,7 @@ class Timer extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        hourList,
-        minuteList,
-        ringTone,
-    } = state.timer;
-
-    return {
-        hourList,
-        minuteList,
-        ringTone,
-    };
-};
-
-export default connect(mapStateToProps, { changeRingTone })(Timer);
+export default connect(state => {
+    const { hourList, minuteList, ringTone } = state.timer;
+    return { hourList, minuteList, ringTone };
+})(Timer);

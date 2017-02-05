@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Actions, ActionConst, Scene, Router, Modal } from 'react-native-router-flux';
+import { ActionConst, Scene, Router } from 'react-native-router-flux';
 
 import { TabIcon } from './components/common';
 import Styles from './constant/Styles';
@@ -21,21 +21,23 @@ const RouterComponent = () => {
                 key="root"
                 tabs
                 tabBarStyle={Styles.tabbarContainer}
-                >
+            >
                 <Scene
                     navigationBarStyle={navigationBarStyle}
                     titleStyle={navigationTitleStyle}
-                    key="worldClock"
+                    sceneStyle={sceneStyle}
+                    key="tabWorldClock"
                     component={WorldClock}
                     title="World Clock"
                     icon={TabIcon}
                     iconDefault="ios-globe-outline"
                     iconSelected="ios-globe"
-                    />
+                />
                 <Scene
                     navigationBarStyle={navigationBarStyle}
                     titleStyle={navigationTitleStyle}
-                    key="alarm"
+                    sceneStyle={sceneStyle}
+                    key="tabAlarm"
                     component={Alarm}
                     title="Alarm"
                     icon={TabIcon}
@@ -44,7 +46,8 @@ const RouterComponent = () => {
                 <Scene
                     navigationBarStyle={navigationBarStyle}
                     titleStyle={navigationTitleStyle}
-                    key="bedTime"
+                    sceneStyle={sceneStyle}
+                    key="tabBedTime"
                     component={BedTime}
                     title="BedTime"
                     icon={TabIcon}
@@ -53,7 +56,8 @@ const RouterComponent = () => {
                 <Scene
                     navigationBarStyle={navigationBarStyle}
                     titleStyle={navigationTitleStyle}
-                    key="stopwatch"
+                    sceneStyle={sceneStyle}
+                    key="tabStopwatch"
                     component={Stopwatch}
                     title="Stopwatch"
                     icon={TabIcon}
@@ -73,18 +77,19 @@ const RouterComponent = () => {
                         key="timer"
                         title="Timer"
                         component={Timer}
-                        duration={10}
-                        />
+                        type={ActionConst.RESET}
+                    />
                     <Scene
                         navigationBarStyle={navigationBarStyle}
                         titleStyle={navigationTitleStyle}
+                        sceneStyle={sceneStyle}
                         key="ringToneList"
                         component={RingToneList}
+                        title="When Timer Ends"
                         direction="vertical"
-                        duration={10}
+                        type={ActionConst.REPLACE}
                         hideTabBar
-                        hideNavBar
-                        />
+                    />
                 </Scene>
             </Scene>
         </RouterWithRedux>

@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../constant/Colors';
 import Styles from '../constant/Styles';
-import {
-    choosingRingTone,
-} from '../actions';
+import store from '../config/store';
+import TimerActions from '../actions/TimerActions';
 
 const propTypes = {
     item: PropTypes.object.isRequired
@@ -17,7 +16,7 @@ class RingToneListItem extends Component {
     renderIcon() {
         const { tmpRingTone, item } = this.props;
         const { listItemIconContainer } = Styles;
-        if (tmpRingTone.id === item.id) {
+        if (tmpRingTone.song === item.song) {
             return (
                 <View style={listItemIconContainer}>
                     <Ionicons
@@ -27,7 +26,7 @@ class RingToneListItem extends Component {
                 </View>
             );
         }
-        return <View style={listItemIconContainer} />
+        return <View style={listItemIconContainer} />;
     }
 
     render() {
@@ -36,7 +35,7 @@ class RingToneListItem extends Component {
         return (
             <TouchableHighlight
                 underlayColor={Colors.listItemUnderlayColor}
-                onPress={() => this.props.choosingRingTone({ item })}>
+                onPress={() => store.dispatch(TimerActions.choosingRingTone(item))}>
                 <View style={listItem}>
                     {this.renderIcon()}
                     <Text style={listItemText}>{item.name}</Text>
@@ -48,11 +47,4 @@ class RingToneListItem extends Component {
 
 RingToneListItem.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-    const { tmpRingTone } = state.timer;
-    return { tmpRingTone };
-};
-
-export default connect(mapStateToProps, {
-    choosingRingTone,
-})(RingToneListItem);
+export default connect((state) => ({ tmpRingTone: state.timer.tmpRingTone }))(RingToneListItem);

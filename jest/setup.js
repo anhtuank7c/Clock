@@ -7,12 +7,6 @@ jest.mock('Linking', () => {
         getInitialURL: jest.fn(),
     }
 });
-jest.mock('react-native-push-notification', () => ({
-    onRegister: jest.fn(),
-    onNotification: jest.fn(),
-    addEventListener: jest.fn(),
-    requestPermissions: jest.fn(),
-}));
 jest.mock('react-native-sound', () => ({
     addEventListener: jest.fn(),
     requestPermissions: jest.fn(),
